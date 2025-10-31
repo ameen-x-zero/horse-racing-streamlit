@@ -1,0 +1,6 @@
+.env
+*.sql
+*.db
+__pycache__/
+.vscode/
+.idea/
