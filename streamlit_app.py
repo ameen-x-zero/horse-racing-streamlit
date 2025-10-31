@@ -8,7 +8,7 @@ def get_connection():
         host="mysql-35b08832-aammeeeennx-8fe7.h.aivencloud.com",  # من Aiven
         port=21216,  # المنفذ من نفس السطر اللي عطوك هو
         user="avnadmin",  # اسم المستخدم من Aiven
-        password=os.getenv("DB_PASSWORD"),  # كلمة المرور من Aiven
+        password="AVNS_PDYujdi5K4kxUCQS8hO",  # كلمة المرور من Aiven
         database="horse_racing"  # قاعدة البيانات الافتراضية
     )
 
