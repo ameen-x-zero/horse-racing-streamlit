@@ -191,10 +191,13 @@ def user_view_tracks_counts():
     st.subheader("Tracks with race counts and participating horses")
     if st.button("Show Tracks"):
         q = """
-        SELECT T.trackName AS Track_Name, COUNT(DISTINCT R.raceId) AS Race_Count, COUNT(DISTINCT RR.horseId) AS Total_Horses
+        SELECT 
+            T.trackName AS Track_Name, 
+            COUNT(DISTINCT R.raceId) AS Race_Count, 
+            COUNT(DISTINCT RR.horseId) AS Total_Horses
         FROM Track T
-        JOIN Race R ON T.trackName = R.trackName
-        JOIN RaceResults RR ON R.raceId = RR.raceId
+        LEFT JOIN Race R ON T.trackName = R.trackName
+        LEFT JOIN RaceResults RR ON R.raceId = RR.raceId
         GROUP BY T.trackName;
         """
         df = run_query(q)
